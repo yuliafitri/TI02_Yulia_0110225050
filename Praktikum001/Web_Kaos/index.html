@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kaos Web Developer — Produk</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">NFStore.com</div>
+      <nav class="nav">
+        <a href="#">Fashion Pria</a>
+        <a href="#">Fashion Wanita</a>
+      </nav>
+      <div class="actions">
+        <input class="search" placeholder="Search..." />
+        <a class="cart" href="#">Cart (0)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page">
+    <div class="breadcrumbs">
+      <a href="#">Home</a> › <a href="#">Fashion Pria</a> › <span>Kaos Programmer</span>
+    </div>
+
+    <section class="product">
+      <div class="gallery">
+        <div class="main-image">
+        </div>
+        <div class="thumbs">
+          <img class="thumb" src="assets/img/kaos_pria.jpg" alt="Kaos Pria" data-src="img/kaos_pria.jpg" />
+          <img class="thumb" src="assets/img/kaos_wanita.jpg" alt="Kaos Wanita"data-src="img/kaos_wanita.jpg" />
+        </div>
+      </div>
+
+      <div class="detail">
+        <h1 class="product-title">Kaos Web Developer</h1>
+        <div class="price">Rp. 75.000</div>
+        <div class="rating">★★★★☆ (3 ulasan)</div>
+
+        <div class="variant">
+          <div class="variant-group">
+            <label class="label">Pilih Warna</label>
+            <div class="colors">
+              <button class="color" data-color="Hitam" title="Hitam" style="background:#111"></button>
+              <button class="color" data-color="Putih" title="Putih" style="background:#fff; border:1px solid #ccc"></button>
+              <button class="color" data-color="Pink" title="Navy" style="background:#000c3f"></button>
+              <button class="color" data-color="Army" title="Army" style="background:#4b5320"></button>
+            </div>
+          </div>
+
+          <div class="variant-group">
+            <label class="label">Ukuran</label>
+            <div class="sizes">
+              <button class="size">S</button>
+              <button class="size">M</button>
+              <button class="size">L</button>
+              <button class="size">XL</button>
+              <button class="size">XXL</button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="actions-row">
+          <button id="btnPesan" class="btn primary">Pesan</button>
+          <button id="btnWishlist" class="btn ghost">Tambah ke Wishlist</button>
+        </div>
+
+        <div class="desc">
+          <h3>Deskripsi Produk</h3>
+          <p>
+            Kaos Web Developer dengan bahan katun nyaman dipakai sehari-hari. Desain simple bertema pengembangan web,
+            cocok untuk programmer dan mahasiswa informatika. Jahitan rapi, tersedia beberapa pilihan warna dan ukuran.
+          </p>
+          <p>
+            <strong>Material:</strong> 100% katun. <strong>Perawatan:</strong> cuci dengan mesin pada suhu rendah, jangan
+            gunakan pemutih.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sitefoot">
+    <div class="container">
+      © 2025 NFStore —Yulia Fitry — Tugas Praktikum Desain UI/UX.
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.thumb').forEach(t => {
+      t.addEventListener('click', () => {
+        const src = t.getAttribute('data-src');
+        document.getElementById('mainImg').src = src;
+      });
+    });
+
+    document.querySelectorAll('.color').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.color').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+    document.querySelectorAll('.size').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.size').forEach(s => s.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    document.getElementById('btnPesan').addEventListener('click', () => {
+      const color = document.querySelector('.color.active')?.dataset.color || 'Belum dipilih';
+      const size = document.querySelector('.size.active')?.textContent || 'Belum dipilih';
+      alert('Pesanan: Kaos Web Developer\\nWarna: ' + color + '\\nUkuran: ' + size);
+    });
+  </script>
+</body>
+</html>
