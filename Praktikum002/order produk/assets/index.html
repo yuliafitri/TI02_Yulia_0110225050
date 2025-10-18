@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan Barang</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Selamat Datang di Website Pemesanan Barang</h1>
+        <p>Silakan isi form di bawah ini untuk memesan barang.</p>
+        
+        <?php
+        // Cek jika ada pesan konfirmasi dari proses.php
+        if (isset($_GET['status']) && $_GET['status'] == 'success') {
+            echo '<div class="success">Pemesanan berhasil! Data telah disimpan.</div>';
+        }
+        ?>
+        
+        <form action="process.php" method="POST">
+            <div class="form-group">
+                <label for="nama">Nama Pelanggan:</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="barang">Pilih Barang:</label>
+                <select id="barang" name="barang" required>
+                    <option value="">-- Pilih Barang --</option>
+                    <option value="Laptop">Laptop (Rp 10.000.000)</option>
+                    <option value="Smartphone">Smartphone (Rp 5.000.000)</option>
+                    <option value="Tablet">Tablet (Rp 3.000.000)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="jumlah">Jumlah:</label>
+                <input type="number" id="jumlah" name="jumlah" min="1" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="alamat">Alamat Pengiriman:</label>
+                <textarea id="alamat" name="alamat" rows="4" required></textarea>
+            </div>
+            
+            <button type="submit">Pesan Sekarang</button>
+        </form>
+    </div>
+</body>
+</html>
