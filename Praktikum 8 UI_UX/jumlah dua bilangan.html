@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menghitung Jumlah Dua Bilangan</title>
+<body>
+    <div class="container">
+        <h2>Penjumlahan Dua Bilangan</h2>
+        <div class="input-group">
+            <input type="number" id="bilangan1" placeholder="Masukkan bilangan pertama" onchange="hitungJumlah()">
+        </div>
+        
+        <div class="operator">+</div>
+        
+        <div class="input-group">
+            <input type="number" id="bilangan2" placeholder="Masukkan bilangan kedua" onchange="hitungJumlah()">
+        </div>
+        
+        <div class="operator">=</div>
+        
+        <div class="result-box">
+            <input type="number" id="hasil" placeholder="Hasil" readonly>
+        </div>
+        
+        <div class="info">
+        </div>
+    </div>
+
+    <script>
+        function hitungJumlah() {
+            const bilangan1 = parseFloat(document.getElementById('bilangan1').value);
+            const bilangan2 = parseFloat(document.getElementById('bilangan2').value);
+            
+            if (!isNaN(bilangan1) && !isNaN(bilangan2)) {
+                const hasil = bilangan1 + bilangan2;
+                
+                document.getElementById('hasil').value = hasil;
+            } else {
+                document.getElementById('hasil').value = '';
+            }
+        }
+    </script>
+</body>
+</html>

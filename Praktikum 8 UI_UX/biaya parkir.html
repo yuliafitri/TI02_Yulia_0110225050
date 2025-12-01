@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soal 3: Menghitung Biaya Parkir</title>
+</head>
+<body>
+
+    <h2>Soal 3: Menghitung Biaya Parkir</h2>
+    <table border="1">
+        <tr>
+            <td>Jam Masuk</td>
+            <td><input type="number" id="jamMasuk"></td>
+        </tr>
+        <tr>
+            <td>Jam Keluar</td>
+            <td><input type="number" id="jamKeluar"></td>
+        </tr>
+        <tr>
+            <td>Lama</td>
+            <td><input type="text" id="lama" readonly></td>
+        </tr>
+        <tr>
+            <td>Biaya</td>
+            <td><input type="text" id="biaya" readonly></td>
+        </tr>
+    </table>
+    
+    <br>
+    <button onclick="hitungParkir()">Hitung</button>
+
+    <script>
+        function hitungParkir() {
+            // Ambil nilai jam masuk dan jam keluar
+            var jamMasuk = document.getElementById("jamMasuk").value;
+            var jamKeluar = document.getElementById("jamKeluar").value;
+            
+            // Hitung lama parkir
+            var lama = jamKeluar - jamMasuk;
+            
+            // Hitung biaya parkir
+            var biaya;
+            if (lama <= 2) {
+                biaya = 3000;
+            } else {
+                biaya = 3000 + ((lama - 2) * 1000);
+            }
+            
+            // Tampilkan hasil
+            document.getElementById("lama").value = lama + " jam";
+            document.getElementById("biaya").value = biaya;
+        }
+    </script>
+
+</body>
+</html>
