@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 50px;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .error {
+            border-color: red !important;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Form Validation</h1>
+        
+        <form id="myForm">
+            <!-- Nama Pelanggan -->
+            <div class="form-group">
+                <label>Nama Pelanggan:</label>
+                <input type="text" id="nama" placeholder="Masukkan nama (max 30 karakter)">
+                <div class="error-message" id="errorNama">Nama harus diisi dan maksimal 30 karakter!</div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" id="email" placeholder="contoh@email.com">
+                <div class="error-message" id="errorEmail">Email harus diisi dengan format yang benar!</div>
+            </div>
+
+            <!-- Jam Keberangkatan -->
+            <div class="form-group">
+                <label>Jam Keberangkatan:</label>
+                <input type="time" id="jam">
+                <div class="error-message" id="errorJam">Jam harus antara 00.00 - 23.59!</div>
+            </div>
+
+            <!-- Tujuan Keberangkatan -->
+            <div class="form-group">
+                <label>Tujuan Keberangkatan:</label>
+                <select id="tujuan">
+                    <option value="">-- Pilih Tujuan --</option>
+                    <option value="Jakarta">Jakarta</option>
+                    <option value="Bandung">Bandung</option>
+                    <option value="Surabaya">Surabaya</option>
+                    <option value="Yogyakarta">Yogyakarta</option>
+                    <option value="Bali">Bali</option>
+                </select>
+                <div class="error-message" id="errorTujuan">Tujuan harus dipilih!</div>
+            </div>
+
+            <!-- Jumlah Tiket -->
+            <div class="form-group">
+                <label>Jumlah Tiket:</label>
+                <input type="number" id="tiket" placeholder="1 - 10" min="1" max="10">
+                <div class="error-message" id="errorTiket">Jumlah tiket harus antara 1 - 10!</div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="success-message" id="successMessage">
+            <strong>Data berhasil disimpan!</strong><br>
+            <span id="dataRingkasan"></span>
+        </div>
+    </div>
+
+    <!-- Panggil file JavaScript terpisah -->
+    <script src="validation.js"></script>
+
+</body>
+</html>
